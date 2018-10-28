@@ -7,7 +7,7 @@ fluidPage(
     tags$style(HTML("hr {border-top: 1px solid #000000;}"))
   ),
   # App title 
-  titlePanel("Adaptive Bayesian Clinical Trial Analysis"),
+  titlePanel("Adaptive Bayesian Clinical Trials Analysis"),
   sidebarLayout(
     
     # Sidebar panel for inputs ----
