@@ -1,5 +1,4 @@
 # bayesCT shiny - App for Analyzing Bayesian Adaptive Trial  <img src="logo.png" align="right" width="150" height="150" />
-===============================================================================
 
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
