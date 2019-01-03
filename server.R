@@ -1,7 +1,8 @@
 #calling two different libraries
 library(shiny)
 library(bayesDP)
-library(plotly)
+library(dplyr)
+library(stats)
 
 function(input, output){
   

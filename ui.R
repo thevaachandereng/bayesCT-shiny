@@ -1,6 +1,8 @@
 library(shiny)
 library(bayesDP)
-library(plotly)
+library(dplyr)
+library(stats)
+
 
 fluidPage(
   tags$head(
