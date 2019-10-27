@@ -9,7 +9,7 @@ fluidPage(
     tags$style(HTML("hr {border-top: 1px solid #000000;}"))
   ),
   # App title 
-  titlePanel("Adaptive Bayesian Clinical Trials Analysis"),
+  titlePanel("Analysis of Bayesian Adaptive Clinical Trials"),
   sidebarLayout(
     
     # Sidebar panel for inputs ----
@@ -70,6 +70,9 @@ fluidPage(
     textInput("b_0", label = "b:", "1")
   ),
   
+  
+  conditionalPanel(
+    condition = "input.hist_data == 'Yes'",
   selectInput("discount_function", "Discount function (Historical Data) :", 
               c("Identity" = "identity", "Weibull" = "weibull", "Scaled Weibull" = "scaledweibull"), 
               selected = "identity"),
@@ -78,7 +81,7 @@ fluidPage(
   radioButtons("fix_alpha", label = withMathJax("Fix $\\alpha$ (Historical Data):"), 
                choices = c("True" = "TRUE", "False" = "FALSE"), selected = "FALSE"), 
   
-  textInput("alpha_max", label = withMathJax("Max  $\\alpha$ (Historical Data):"), "1"), 
+  textInput("alpha_max", label = withMathJax("Max  $\\alpha$ (Historical Data):"), "1")), 
   
     p("GPL-3 License"),
     p("Copyright (c) 2018 Thevaa Chandereng, Donald Musgrove, Tarek Haddad, 
