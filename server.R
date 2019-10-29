@@ -3,30 +3,30 @@ library(shiny)
 library(bayesDP)
 library(dplyr)
 library(stats)
+library(tidyverse)
 
 function(input, output){
   
   sliderValues <- reactive({
+    
+    inFile <- input$file1
+    
+    if (is.null(inFile))
+      return(NULL)
+    
+    tbl <- read.csv(inFile$datapath, header=input$header, sep=input$sep)
+    
     # for normal data
     if(input$dist == "Normal"){
-      if(input$margin_n == "add"){
-      val <- add.margin(delta = input$marginval_n1, varC = input$varC, varT = input$varT,
-                        alpha = as.numeric(input$type1_n), beta = 1 - as.numeric(input$power_n))
-      data.frame(Output = c("Sample Size in Control",
-                            "Sample Size in Treatment",
-                            "Randomization control to treatment (k:1))",
-                            "Realtive Efficiency (compared to 1:1)"),
-                 Values =  c(ceiling(val$control), ceiling(val$treatment), val$randomization, val$efficiency))
-    }
-    else{
-      val <- multi.margin(delta = input$marginval_n2, muC = input$muC, varC = input$varC, varT = input$varT,
-                          alpha = as.numeric(input$type1_n), beta = 1 - as.numeric(input$power_n))
-      data.frame(Output = c("Sample Size in Control",
-                            "Sample Size in Treatment",
-                            "Randomization control to treatment (k:1)",
-                            "Realtive Efficiency (compared to 1:1)"),
-                 Values = c(ceiling(val$control), ceiling(val$treatment), val$randomization, val$efficiency))
-    }
+      normal_analysis(data                  = NULL,
+                      alternative           = "greater",
+                      N_impute              = 100,
+                      h0                    = 0,
+                      number_mcmc           = 10000,
+                      prob_ha               = 0.95,
+                      futility_prob         = 0.10,
+                      expected_success_prob = 0.90)
+
   }
     else if(input$dist == "Binomial"){
       if(input$margin_b == "add"){
