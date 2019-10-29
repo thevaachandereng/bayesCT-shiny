@@ -1,3 +1,6 @@
+library(bayesDP)
+library(dplyr)
+
 normal_analysis <- function(
   data                  = NULL,
   mu0_treatment         = NULL,
