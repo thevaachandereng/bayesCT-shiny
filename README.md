@@ -5,7 +5,7 @@
 
 **Authors**: Thevaa Chandereng, Donald Musgrove, Tarek Haddad, Graeme Hickey, Tim Hanson, Theodore Lystig
 
-Shiny app for analyzing adaptive bayesian clinical trial by incorporating historical data and allowing for early stopping for futility and success. 
+Shiny app for analyzing Bayesian adaptive clinical trials by incorporating historical data and allowing for early stopping for futility and success. 
 
 
 #### The app is available at http://www.statlab.wisc.edu/shiny/bayesCT/
